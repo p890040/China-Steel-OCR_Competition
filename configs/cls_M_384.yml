@@ -1,0 +1,42 @@
+wandb_resume: False
+
+train_csv: 'Training Label/train_classifier_final_mix.csv'
+val_csv: 'Training Label/val_classifier_final_mix.csv'
+Dataset_path: 'public_training_data/classifier_data_final_mix'
+Dataset_type: 'Pure_Dataset' 
+Data_sampler: ''
+model_name: 'tf_efficientnetv2_m_in21k' # tf_efficientnet_b6_ns, tf_efficientnet_b3_ns, tf_efficientnetv2_m_in21k
+pretrain_model: ''
+
+### hyperparameters
+num_workers: 12
+im_size: 384
+batch_size: 48 # 20, 192, 136
+epochs: 8
+validation_period : 99999999
+validation_start_ep : 1
+save_checkpoint : 2000
+lr: 0.0003
+lr_schedule1: 3
+lr_schedule2: 6
+lr_schedule3: 8
+dropout: 0.001
+loss: 'CE'
+opt: 'Adam'
+
+### torch Compose
+RandomHorizontalFlip: 0.0
+brightness: 0.1
+contrast: 0.1
+saturation: 0.1
+hue: 0.2
+Pad_size: 24
+# RandomRotation: 20
+
+### data_opt
+im_load: 'cv2'
+resize_done: False
+im_type: '.jpg'
+use_Gray : False
+rand_anti_white: False
+use_reverse : True

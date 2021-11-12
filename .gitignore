@@ -4,7 +4,7 @@ run/
 __pycache__/*
 INFO
 *.pth
+*.pkl
 *.jpg
 *.zip
-*.csv
 
