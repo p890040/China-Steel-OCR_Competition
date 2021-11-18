@@ -93,3 +93,40 @@ python pri_test_classifier.py
 ```
 python pri_recog_voting3.py 
 ```
+
+---
+### 2021/11/18 補充 
+- [ ] Update this part of code.
+
+## 完整版本 run text_detection=>classification=>OCR=>ensemble
++ 先將model_final1.pth改名=>model_final.pth
+```
+python pri_test_detection.py 1 --score 0.98 --nms 0.95 && python pri_test_classifier.py 1 && python pri_test_recognizer3.py 1 && python pri_recog_voting3.py 1
+python pri_test_detection.py 3 --score 0.95 --nms 0.5 && python pri_test_classifier.py 3 && python pri_test_recognizer3.py 3 && python pri_recog_voting3.py 3
+```
++ 再將model_final2.pth改名=>model_final.pth
+```
+python pri_test_detection.py 4 --score 0.98 --nms 0.95 && python pri_test_classifier.py 4 && python pri_test_recognizer3.py 4 && python pri_recog_voting3.py 4
+python pri_test_detection.py 6 --score 0.95 --nms 0.5 && python pri_test_classifier.py 6 && python pri_test_recognizer3.py 6 && python pri_recog_voting3.py 6
+```
++ 再將model_final3.pth改名=>model_final.pth
+```
+python pri_test_detection.py 7 --score 0.95 --nms 0.95 && python pri_test_classifier.py 7 && python pri_test_recognizer3.py 7 && python pri_recog_voting3.py 7
+python pri_test_detection.py 8 --score 0.95 --nms 0.5 && python pri_test_classifier.py 8 && python pri_test_recognizer3.py 8 && python pri_recog_voting3.py 8
+```
++ 最後產生submission_private_final_reproduce.csv
+```
+python voting_final.py
+```
+
+若只是要驗證最後結果
+```
+python pri_recog_voting3.py 1 && 
+python pri_recog_voting3.py 3 && 
+python pri_recog_voting3.py 4 &&
+python pri_recog_voting3.py 6 && 
+python pri_recog_voting3.py 7 && 
+python pri_recog_voting3.py 8 &&
+python voting_final.py
+```
+
