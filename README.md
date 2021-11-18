@@ -119,7 +119,7 @@ python pri_test_detection.py 8 --score 0.95 --nms 0.5 && python pri_test_classif
 python voting_final.py
 ```
 
-若只是要驗證最後結果
+### 若只是要驗證最後結果
 ```
 python pri_recog_voting3.py 1 && 
 python pri_recog_voting3.py 3 && 
